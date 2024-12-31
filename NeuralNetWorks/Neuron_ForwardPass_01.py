@@ -14,17 +14,23 @@ def layeredNeuron(inputs,weights,bias):
     return nOutput
 
 def forwardPassNeuralNetwork(inputs,weights_hiddenLayers,bias,noOfLayers):
-    interation=0
-    layeredOutput =any
-    while (interation < noOfLayers):
+    if noOfLayers ==1:
+        layeredOutput = layeredNeuron(inputs,weights_hiddenLayers[noOfLayers],bias[noOfLayers])
+    else:
+        return layeredNeuron(layeredOutput,weights_hiddenLayers[noOfLayers - 1],bias[noOfLayers -1])
+        interation+=1
+    """     
         if noOfLayers == 0:
-            layeredOutput = layeredNeuron(inputs,weights_hiddenLayers[interation],bias[interation])
+            layeredOutput =layeredNeuron(inputs,weights_hiddenLayers[interation],bias[interation])
             
         else:
             layeredOutput = layeredNeuron(layeredOutput,weights_hiddenLayers[interation],bias[interation])
         interation+=1
+    """
+        
+    print (type(layeredOutput))
     return layeredOutput
-
+    
 
 
 
@@ -40,4 +46,4 @@ bias = [[2,1.0,-0.8],
         [2,1.0,-0.8] ]
 noOfLayers = 3
 
-print(forwardPassNeuralNetwork(inputs,weights_hiddenLayers,bias,noOfLayers))
+print(forwardPassNeuralNetwork(inputs[0],weights_hiddenLayers,bias,noOfLayers))
