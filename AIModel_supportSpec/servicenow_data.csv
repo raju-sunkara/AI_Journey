@@ -1,0 +1,6 @@
+ticket_id,description,category,is_duplicate,resolution
+101,Cannot access the network printer.,IT Support,0,Restart the printer and check settings.
+102,Forgot my password for the employee portal.,Password Issues,0,Use the password recovery link.
+103,The software keeps crashing on startup.,Software Bug,1,Reinstall the software.
+104,Requesting access to project XYZ files.,Access Request,0,Granted access to the requested files.
+105,System performance is very slow today.,Performance Issue,1,Optimize system resources.

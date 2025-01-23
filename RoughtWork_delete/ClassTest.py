@@ -20,8 +20,10 @@ class ClassTest1(ClassTest):
         super().print()
         print("This is from ClassTest1")
         
-obj=ClassTest1(20,30)
+""" obj=ClassTest1(20,30)
 obj.print()
 obj.update(40,50)
-obj.print()
+obj.print() """
+
+ClassTest1(30,50).print()
 
