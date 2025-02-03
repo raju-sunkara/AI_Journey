@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Resolution Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            height: 150px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Case Resolution Generator</h2>
+
+        <div class="form-group">
+            <label for="case_description">Case Description:</label>
+            <input type="text" id="case_description" placeholder="Enter the case description">
+        </div>
+
+        <button class="btn" id="generate_resolution">Generate Resolution</button>
+
+        <div class="form-group">
+            <label for="generated_response">Generated Resolution:</label>
+            <textarea id="generated_response" readonly></textarea>
+        </div>
+
+        <div class="error" id="error_message"></div>
+    </div>
+
+    <script>
+        document.getElementById("generate_resolution").addEventListener("click", function() {
+            // Get case description from the input field
+            const caseDescription = document.getElementById("case_description").value.trim();
+
+            // Clear previous error or response
+            document.getElementById("generated_response").value = '';
+            document.getElementById("error_message").textContent = '';
+
+            if (!caseDescription) {
+                document.getElementById("error_message").textContent = "Please enter a case description.";
+                return;
+            }
+
+            // Create a request payload
+            const payload = {
+                case_description: caseDescription
+            };
+
+            // Send a POST request to the Flask API
+            fetch('http://127.0.0.1:8000/generate_resolution/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.generated_resolution) {
+                    // Populate the generated response in the text area
+                    document.getElementById("generated_response").value = data.generated_resolution;
+                } else if (data.error) {
+                    // Display error message
+                    document.getElementById("error_message").textContent = data.error;
+                }
+            })
+            .catch(error => {
+                // Handle any errors during the fetch request
+                console.error('Error:', error);
+                document.getElementById("error_message").textContent = 'An error occurred while generating the resolution. Please try again.';
+            });
+        });
+    </script>
+
+</body>
+</html>
