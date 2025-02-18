@@ -1,0 +1,20 @@
+case_description,resolution
+Performance is degraded when reset the password occurs.,Advise the user to restart the system.
+The application crashes while start the service.,Apply the latest patch and monitor for changes.
+Admin users cannot access the mobile app due to network issues.,Advise the user to clear the cache.
+the web server throws an error when trying to reset the password.,Verify that the database is accessible and reconfigure the application settings.
+the authentication fails intermittently when submit a form is performed.,Verify that the network connection is stable and reconfigure the application settings.
+the database throws an error when trying to log in.,Advise the user to clear the cache.
+the workstation is not functioning properly after a firmware update.,Please update the drivers and ensure the configurations are correct.
+The user is unable to log in due to network issues.,Upgrade the system to version 2.1 and recheck.
+the workstation is not functioning properly after a software installation.,Advise the user to update the drivers.
+Performance is degraded when submit a form occurs.,Advise the user to restart the system.
+the scanner is not functioning properly after a configuration change.,Perform a reboot and test again.
+The user is unable to log in due to insufficient permissions.,Verify that the network connection is stable and reconfigure the application settings.
+The application crashes while submit a form.,Perform a rollback the update and test again.
+the scanner is not functioning properly after a firmware update.,Upgrade the system to version 2.1 and recheck.
+The application crashes while upload a file.,Upgrade the system to the most recent release and recheck.
+the scanner is not functioning properly after a configuration change.,Ensure that a backup is taken is completed.
+Admin users cannot access the database due to a configuration error.,Ensure that a backup is taken is completed.
+the mobile app throws an error when trying to reset the password.,Advise the user to update the drivers.
+Regular employees cannot access the database due to insufficient permissions.,Apply default settings and monitor for changes.
