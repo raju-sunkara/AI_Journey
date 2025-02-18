@@ -1,0 +1,11 @@
+Train the model by running AIModel_supportSpec\offline\AI-offline-gpt2_resolution_modified.py
+    This will train the model and also creates cache directory 
+Now run rest.py 
+    which will start Flask server and creates endpoints so that rest calls can be made
+        example rest call: http://127.0.0.1:8000/generate_resolution
+            Body: 
+                {
+                        "case_description": "The application crashes while reset the password."
+                }
+Prepare a client, where response can be presented in an HTML file. Just launch this
+    file:///C:/MyWork/Code/AI-Journey/AI_Journey/AIModel_supportSpec/offline/UI.html
